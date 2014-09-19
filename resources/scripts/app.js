@@ -36,7 +36,7 @@ hcciApp.controller('homeCtrl',['$scope', '$http',
 	  //Get Geo Location and Zipcode
 	  if (navigator.geolocation) {
 		    navigator.geolocation.getCurrentPosition(function(position){
-		        $http.get('http://maps.googleapis.com/maps/api/geocode/json?latlng='+position.coords.latitude+','+position.coords.longitude+'&sensor=true').then(function(res){
+		        $http.get('/maps/api/geocode/json?latlng='+position.coords.latitude+','+position.coords.longitude+'&sensor=true').then(function(res){
 				    angular.forEach(res.data.results[0].address_components, function(address_components) {
 				    	 angular.forEach(address_components.types, function(type) {
 				    		 if(angular.equals(type,"postal_code")){
